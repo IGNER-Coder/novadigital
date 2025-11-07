@@ -1,5 +1,9 @@
+'use client';
+
 import './globals.css';
-import { Inter, Poppins } from 'next/font/google';
+import { Inter, Poppins, Raleway } from 'next/font/google';
+import { AnimatePresence } from 'framer-motion';
+import GlobalHeader from '../components/GlobalHeader';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -9,44 +13,31 @@ const inter = Inter({
 
 const poppins = Poppins({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'], // Loading all specified weights
+  weight: ['400', '500', '600', '700'],
   variable: '--font-poppins',
   display: 'swap',
 });
 
-export const metadata = {
-  title: 'NovaDigital - Web Development Solutions',
-  description: 'Innovative Web Solutions for Your Business',
-};
-
-import Navbar from '../components/Navbar';
-
-
+const raleway = Raleway({
+  subsets: ['latin'],
+  weight: ['700', '800'], // Bold and Extra-bold for "Nova"
+  variable: '--font-raleway',
+  display: 'swap',
+});
 
 export default function RootLayout({
-
   children,
-
 }: {
-
   children: React.ReactNode;
-
 }) {
-
   return (
-
-    <html lang="en" className={`${inter.variable} ${poppins.variable}`} suppressHydrationWarning>
-
+    <html lang="en" className={`${inter.variable} ${poppins.variable} ${raleway.variable}`} suppressHydrationWarning>
       <body>
-
-        <Navbar />
-
-        {children}
-
+        <AnimatePresence mode="wait">
+          <GlobalHeader />
+          {children}
+        </AnimatePresence>
       </body>
-
     </html>
-
   );
-
 }

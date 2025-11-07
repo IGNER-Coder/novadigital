@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --soft-ivory: #F7F7F7;
+  --tropical-teal: #00FF85;
+  --dark-grey: #1A1A1A;
+}

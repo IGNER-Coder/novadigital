@@ -9,14 +9,14 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        white: '#FFFFFF',
-        'dark-grey': '#212529',
-        'light-grey': '#F8F9FA',
-        'tropical-teal': '#00CED1',
+        'soft-ivory': 'var(--soft-ivory)',
+        'tropical-teal': 'var(--tropical-teal)',
+        'dark-grey': 'var(--dark-grey)',
       },
       fontFamily: {
         poppins: ['var(--font-poppins)'],
         inter: ['var(--font-inter)'],
+        raleway: ['var(--font-raleway)'],
       },
     },
   },
