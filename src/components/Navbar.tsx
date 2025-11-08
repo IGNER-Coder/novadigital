@@ -28,9 +28,10 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // FIX 1: Added 'as const'
   const menuVariants = {
     hidden: { x: "100%" },
-    visible: { x: 0, transition: { type: "spring", stiffness: 100, damping: 20 } },
+    visible: { x: 0, transition: { type: "spring", stiffness: 100, damping: 20 } as const },
     exit: { x: "100%" }
   };
 
@@ -94,7 +95,8 @@ export default function Navbar() {
                     hover: { scaleX: 1, originX: 0 },
                     active: { scaleX: 1, originX: 0 },
                   }}
-                  transition={{ duration: 0.3, ease: "easeOut" }}
+                  // FIX 2: Added 'as const'
+                  transition={{ duration: 0.3, ease: "easeOut" } as const}
                   className="absolute bottom-0 left-0 h-0.5 bg-[#00FF85] w-full"
                 />
               </motion.a>
@@ -149,7 +151,8 @@ export default function Navbar() {
                       rest: { scaleX: 0, originX: 0 },
                       hover: { scaleX: 1, originX: 0 },
                     }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    // FIX 3: Added 'as const'
+                    transition={{ duration: 0.3, ease: "easeOut" } as const}
                     className="absolute bottom-0 left-0 h-0.5 bg-[#00FF85] w-full"
                   />
                 </motion.a>

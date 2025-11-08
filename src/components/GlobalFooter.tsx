@@ -8,7 +8,7 @@ export default function GlobalFooter() {
   const footerVariants = {
     hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
-  };
+  } as const; // <-- ADD "as const" HERE
 
   return (
     <motion.footer

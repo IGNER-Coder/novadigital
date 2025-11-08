@@ -8,12 +8,12 @@ export default function ContactSection() {
   const sectionVariants = {
     hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
-  };
+  } as const; // <-- ADD "as const" HERE
 
   const whatsappVariants = {
     hover: { scale: 1.1, boxShadow: '0px 0px 20px rgba(0, 255, 133, 0.8)', transition: { duration: 0.3 } },
     tap: { scale: 0.95 },
-  };
+  } as const; // <-- ALSO ADD IT HERE to be safe
 
   return (
     <motion.section

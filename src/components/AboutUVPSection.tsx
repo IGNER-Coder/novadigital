@@ -6,7 +6,7 @@ export default function AboutUVPSection() {
   const fadeIn = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
-  };
+  } as const; // <-- ADD "as const" HERE
 
   return (
     <section id="about-uvp" className="w-full py-20 bg-[#F7F7F7]">
@@ -26,7 +26,7 @@ export default function AboutUVPSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
-          transition={{ delay: 0.2 }}
+          transition={{ delay: 0.2 }} // Note: This transition overrides the variant's transition
         >
           At Nova Digital, we believe your online presence should be a powerful asset, not a liability. We combine cutting-edge technology with strategic design to build websites that not only look stunning but also drive tangible business results.
         </motion.p>
@@ -36,7 +36,7 @@ export default function AboutUVPSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
-          transition={{ delay: 0.4 }}
+          transition={{ delay: 0.4 }} // Note: This transition overrides the variant's transition
         >
           Our focus is on creating seamless user experiences, optimizing for speed, and implementing smart solutions that help you convert browsers into loyal customers. Partner with us to transform your digital vision into reality.
         </motion.p>

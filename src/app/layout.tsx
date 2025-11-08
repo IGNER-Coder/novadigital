@@ -2,7 +2,8 @@
 
 import './globals.css';
 import { Inter, Poppins, Raleway } from 'next/font/google';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion'; // 1. Import motion
+import { usePathname } from 'next/navigation'; // 2. Import usePathname
 import GlobalHeader from '../components/GlobalHeader';
 
 const inter = Inter({
@@ -30,12 +31,20 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const pathname = usePathname(); // 3. Get the current page path
+
   return (
     <html lang="en" className={`${inter.variable} ${poppins.variable} ${raleway.variable}`} suppressHydrationWarning>
       <body>
+        {/* 4. Move static components *outside* AnimatePresence */}
+        <GlobalHeader />
+        
         <AnimatePresence mode="wait">
-          <GlobalHeader />
-          {children}
+          {/* 5. Wrap children in a motion.div with the pathname as the key */}
+          {/* This fixes the error and enables page transitions */}
+          <motion.div key={pathname}>
+            {children}
+          </motion.div>
         </AnimatePresence>
       </body>
     </html>
